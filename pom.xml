@@ -31,8 +31,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <java.target>11</java.target>
+    <maven.compiler.source>${java.target}</maven.compiler.source>
+    <maven.compiler.target>${java.target}</maven.compiler.target>
 
     <kotlin.version>1.7.10</kotlin.version>
     <log4j.version>2.18.0</log4j.version>
@@ -118,7 +119,7 @@
         <version>${kotlin.version}</version>
 
         <configuration>
-          <jvmTarget>1.8</jvmTarget>
+          <jvmTarget>${java.target}</jvmTarget>
         </configuration>
 
         <executions>
