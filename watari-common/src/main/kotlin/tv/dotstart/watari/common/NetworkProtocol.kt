@@ -22,7 +22,7 @@ package tv.dotstart.watari.common
  * @author Johannes Donath
  * @date 08/07/2022
  */
-enum class Protocol {
+enum class NetworkProtocol {
 
   /**
    * Transmission Control Protocol (TCP)
