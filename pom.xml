@@ -68,11 +68,6 @@
       </dependency>
 
       <dependency>
-        <groupId>org.jetbrains.kotlinx</groupId>
-        <artifactId>kotlinx-coroutines-jdk9</artifactId>
-        <version>1.6.3</version>
-      </dependency>
-      <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-reflect</artifactId>
         <version>${kotlin.version}</version>
@@ -88,6 +83,12 @@
         <artifactId>log4j-core</artifactId>
         <version>${log4j.version}</version>
         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.reactivex.rxjava3</groupId>
+        <artifactId>rxkotlin</artifactId>
+        <version>3.0.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

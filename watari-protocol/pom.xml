@@ -38,8 +38,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.jetbrains.kotlinx</groupId>
-      <artifactId>kotlinx-coroutines-jdk9</artifactId>
+      <groupId>io.reactivex.rxjava3</groupId>
+      <artifactId>rxkotlin</artifactId>
     </dependency>
   </dependencies>
 </project>
