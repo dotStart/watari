@@ -29,6 +29,14 @@ import tv.dotstart.watari.transport.Transport
  */
 interface TransportLoader {
 
+  companion object {
+
+    /**
+     * Provides a default class loader which relies on [ServiceTransportLoader].
+     */
+    val DEFAULT by lazy { ServiceTransportLoader(ClassLoader.getSystemClassLoader()) }
+  }
+
   /**
    * Retrieves a listing of transports which are installed within the current execution environment
    * but may not necessarily be available for selection.
