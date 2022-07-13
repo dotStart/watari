@@ -46,6 +46,11 @@
         <artifactId>watari-common</artifactId>
         <version>0.1.0-SNAPSHOT</version>
       </dependency>
+      <dependency>
+        <groupId>tv.dotstart.watari</groupId>
+        <artifactId>watari-transport</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+      </dependency>
 
       <dependency>
         <groupId>tv.dotstart.watari</groupId>
