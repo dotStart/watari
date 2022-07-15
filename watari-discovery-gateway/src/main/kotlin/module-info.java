@@ -28,6 +28,7 @@ module watari.discovery.gateway {
   requires watari.common;
 
   exports tv.dotstart.watari.discovery.gateway;
+  exports tv.dotstart.watari.discovery.gateway.registry;
 
   provides tv.dotstart.watari.discovery.gateway.GatewayDiscoveryService
       with tv.dotstart.watari.discovery.gateway.NetstatGatewayDiscoveryService,
