@@ -16,6 +16,7 @@
  */
 package tv.dotstart.watari.transport.loader
 
+import tv.dotstart.watari.common.service.loader.StaticServiceRegistry
 import tv.dotstart.watari.transport.Transport
 
 /**
@@ -25,12 +26,8 @@ import tv.dotstart.watari.transport.Transport
  * @date 10/07/2022
  * @since 0.1.0
  */
-class StaticTransportLoader(transports: List<Transport>) : TransportLoader {
-
-  override val installed = ArrayList(transports)
-
-  override val available = installed
-    .filter(Transport::available)
+class StaticTransportLoader(transports: List<Transport>) :
+  StaticServiceRegistry<Transport>(transports), TransportLoader {
 
   override val optimal: Transport? = available
     .maxBy(Transport::priority)

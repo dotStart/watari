@@ -17,6 +17,7 @@
 package tv.dotstart.watari.transport.loader
 
 import tv.dotstart.watari.common.lazy.revertibleLazy
+import tv.dotstart.watari.common.service.loader.ServiceLoaderServiceRegistry
 import tv.dotstart.watari.transport.Transport
 import java.util.*
 
@@ -27,9 +28,8 @@ import java.util.*
  * @date 10/07/2022
  * @since 0.1.0
  */
-class ServiceTransportLoader private constructor(
-  private val loader: ServiceLoader<Transport>
-) : TransportLoader {
+class ServiceTransportLoader private constructor(loader: ServiceLoader<Transport>) :
+  ServiceLoaderServiceRegistry<Transport>(loader), TransportLoader {
 
   /**
    * Creates a transport loader for the thread's current context class loader.
@@ -53,27 +53,14 @@ class ServiceTransportLoader private constructor(
     ServiceLoader.load(layer, Transport::class.java)
   )
 
-  private var _installed = revertibleLazy(this, initializer = this.loader::toList)
-  private var _available = revertibleLazy(this) {
-    this._installed.value
-      .filter(Transport::available)
-  }
   private var _optimal = revertibleLazy<Transport?>(this) {
-    this._available.value
+    this.available
       .maxBy(Transport::priority)
   }
 
-  override val installed by _installed
-  override val available by _available
   override val optimal by _optimal
 
-  override fun refresh() {
-    this.loader.reload()
-
-    synchronized(this) {
-      this._installed.reset()
-      this._available.reset()
-      this._optimal.reset()
-    }
+  override fun reset() {
+    this._optimal.reset()
   }
 }

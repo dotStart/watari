@@ -16,6 +16,7 @@
  */
 package tv.dotstart.watari.transport.loader
 
+import tv.dotstart.watari.common.service.loader.ServiceRegistry
 import tv.dotstart.watari.transport.Transport
 
 /**
@@ -27,7 +28,7 @@ import tv.dotstart.watari.transport.Transport
  * @since 0.1.0
  * @see ServiceTransportLoader for a default implementation.
  */
-interface TransportLoader {
+interface TransportLoader : ServiceRegistry<Transport> {
 
   companion object {
 
@@ -38,37 +39,10 @@ interface TransportLoader {
   }
 
   /**
-   * Retrieves a listing of transports which are installed within the current execution environment
-   * but may not necessarily be available for selection.
-   */
-  val installed: List<Transport>
-
-  /**
-   * Retrieves a listing of transports which are installed and available to the current execution
-   * environment.
-   *
-   * The default implementation of this property filters the return value of [installed] to exclude
-   * any transports marked unavailable.
-   */
-  val available: List<Transport>
-    get() = this.installed
-      .filter(Transport::available)
-
-  /**
    * Retrieves the most optimal transport implementation which is available within the current
    * execution environment.
    */
   val optimal: Transport?
     get() = this.available
       .maxBy(Transport::priority)
-
-  /**
-   * Refreshes the cached values within this transport loader.
-   *
-   * This function is optional and may not necessarily have any effect depending on the selected
-   * transport loader implementation.
-   *
-   * The default implementation of this function acts as a NOOP.
-   */
-  fun refresh() = Unit
 }
