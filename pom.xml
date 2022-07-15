@@ -37,6 +37,7 @@
 
     <kotlin.version>1.7.10</kotlin.version>
     <log4j.version>2.18.0</log4j.version>
+    <junit.version>5.8.2</junit.version>
   </properties>
 
   <dependencyManagement>
@@ -95,6 +96,12 @@
         <artifactId>rxkotlin</artifactId>
         <version>3.0.1</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.fusesource.hawtjni</groupId>
+        <artifactId>hawtjni-runtime</artifactId>
+        <version>1.17</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -113,8 +120,14 @@
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.8.2</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -183,6 +196,8 @@
 
     <module>watari-transport</module>
     <module>watari-codec-pmp</module>
+
+    <module>watari-discovery-gateway</module>
 
     <module>watari-protocol</module>
     <module>watari-protocol-pmp</module>
