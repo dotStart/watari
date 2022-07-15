@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tv.dotstart.watari.transport.loader
+package tv.dotstart.watari.transport.registry
 
-import tv.dotstart.watari.common.service.loader.ServiceRegistry
+import tv.dotstart.watari.common.service.registry.ServiceRegistry
 import tv.dotstart.watari.transport.Transport
 
 /**

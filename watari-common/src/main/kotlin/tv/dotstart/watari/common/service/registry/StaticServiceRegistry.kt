@@ -14,21 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tv.dotstart.watari.transport.loader
+package tv.dotstart.watari.common.service.registry
 
-import tv.dotstart.watari.common.service.loader.StaticServiceRegistry
-import tv.dotstart.watari.transport.Transport
+import tv.dotstart.watari.common.service.Service
 
 /**
- * Provides discovery of a predefined static list of transports.
+ * Provides a service registry implementation which returns a predefined static set of services of a
+ * given type.
  *
  * @author Johannes Donath
- * @date 10/07/2022
+ * @date 15/07/2022
  * @since 0.1.0
  */
-class StaticTransportLoader(transports: List<Transport>) :
-  StaticServiceRegistry<Transport>(transports), TransportLoader {
+open class StaticServiceRegistry<out I : Service>(
+  services: List<I>
+) : ServiceRegistry<I> {
 
-  override val optimal: Transport? = available
-    .maxBy(Transport::priority)
+  override final val installed = services.toList()
+
+  override val available = installed
+    .filter(Service::available)
 }

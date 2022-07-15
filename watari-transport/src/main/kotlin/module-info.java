@@ -37,7 +37,7 @@ module watari.transport {
   requires io.netty.transport.kqueue.osx.x86_64;
 
   exports tv.dotstart.watari.transport;
-  exports tv.dotstart.watari.transport.loader;
+  exports tv.dotstart.watari.transport.registry;
 
   provides tv.dotstart.watari.transport.Transport with
       tv.dotstart.watari.transport.EpollTransport,
