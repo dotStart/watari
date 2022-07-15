@@ -38,6 +38,10 @@
     </dependency>
     <dependency>
       <groupId>tv.dotstart.watari</groupId>
+      <artifactId>watari-discovery-gateway</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>tv.dotstart.watari</groupId>
       <artifactId>watari-transport</artifactId>
     </dependency>
 
