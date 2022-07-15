@@ -14,7 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tv.dotstart.watari.common.service
+package tv.dotstart.watari.common.service.loader
+
+import tv.dotstart.watari.common.service.Service
 
 /**
  * Handles the discovery of installed and available [Service] implementations within the current
@@ -23,7 +25,7 @@ package tv.dotstart.watari.common.service
  * @author Johannes Donath
  * @date 10/07/2022
  * @since 0.1.0
- * @see AbstractServiceLoaderServiceRegistry for a default implementation.
+ * @see ServiceLoaderServiceRegistry for a default implementation.
  */
 interface ServiceRegistry<out I : Service> {
 

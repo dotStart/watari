@@ -31,4 +31,5 @@ module watari.common {
   exports tv.dotstart.watari.common;
   exports tv.dotstart.watari.common.lazy;
   exports tv.dotstart.watari.common.service;
+  exports tv.dotstart.watari.common.service.loader;
 }
