@@ -30,6 +30,16 @@ import java.net.NetworkInterface
  */
 interface GatewayDiscoveryServiceRegistry : ServiceRegistry<GatewayDiscoveryService> {
 
+  companion object {
+
+    /**
+     * Provides a default class loader which relies on [ServiceTransportLoader].
+     */
+    val DEFAULT: GatewayDiscoveryServiceRegistry by lazy {
+      ServiceLoaderGatewayDiscoveryServiceRegistry(ClassLoader.getSystemClassLoader())
+    }
+  }
+
   /**
    * Performs a gateway discovery across the list of available discovery services in order of their
    * respective associated priority.
