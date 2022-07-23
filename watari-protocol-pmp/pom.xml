@@ -36,6 +36,10 @@
       <groupId>tv.dotstart.watari</groupId>
       <artifactId>watari-common</artifactId>
     </dependency>
+    <dependency>
+      <groupId>tv.dotstart.watari</groupId>
+      <artifactId>watari-transport</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>tv.dotstart.watari</groupId>
