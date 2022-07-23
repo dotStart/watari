@@ -69,7 +69,7 @@ private class SynchronizedRevertibleLazy<out T>(
         // perform a final check on the value within protection as another thread may have completed
         // the initialization process while we were waiting for the lock to free up
         val protectedValue = this._value
-        if (protectedValue != null) {
+        if (protectedValue != UninitializedValue) {
           return protectedValue as T
         }
 
